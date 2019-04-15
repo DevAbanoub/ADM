@@ -10,4 +10,4 @@ NOTE : This App Is UNDER DEVELOPMENT now!
 - cross-platform (GNU/Linux, Mac, Windows, Android)
 
 ## Support
-You can support me by contributing to this project via opening an [issue](./issues) or [pull request](./pulls).
+You can support me by contributing to this project via opening an [issue](https://github.com/DevAbanoub/sidm/issues) or [pull request](https://github.com/DevAbanoub/sidm/pulls).
