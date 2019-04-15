@@ -4,6 +4,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"github.com/spf13/cobra"
 )
@@ -14,35 +15,47 @@ func main() {
 		Short:        "Smart Internet Download Manager!",
 		SilenceUsage: true,
 	}
-	cmd.AddCommand(downloadUrlCmd(), getFile())
+	cmd.AddCommand(getVersion(), getFileFromUrl())
 	if err := cmd.Execute(); err != nil {
 		os.Exit(1)
 	}
 }
 
-func downloadUrlCmd() *cobra.Command {
+func getFileFromUrl() *cobra.Command {
 	return &cobra.Command{
-		Use: "get",
+		Use:     "get",
+		Aliases: []string{"down", "download", "grap"},
+		Short:   "Download a specific file (url) from the Internet",
+		Args:    cobra.MinimumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
-			// now := time.Now()
-			// prettyTime := now.Format(time.RubyDate)
-			cmd.Println("Downloading...")
+			//cmd.Println("Print: " + strings.Join(args, " "))
+			ext := args[0][len(args[0])-3:]
+			switch ext {
+			case "jpg", "png", "gif":
+				cmd.Println("Downloading the image...")
+			case "mp4", "mkv", "3gp":
+				cmd.Println("Downloading the video...")
+			default:
+				cmd.Println("Downloading the file...")
+			}
+			fileUrl := args[0]
+			fileName := filepath.Base(fileUrl)
+			if err := DownloadFile(fileName, fileUrl); err != nil {
+				panic(err)
+			}
+			cmd.Println("Image Downloaded.")
 			return nil
 		},
 	}
 }
 
-func getFile() *cobra.Command {
+func getVersion() *cobra.Command {
 	return &cobra.Command{
-		Use: "getfile",
+		Use:     "version",
+		Short:   "Get the current version number of SIDM",
+		Aliases: []string{"v", "V", "Version", "VERSION"},
 		RunE: func(cmd *cobra.Command, args []string) error {
-			cmd.Println("Image Downloading..")
-			//edit to make it dynamic
-			fileUrl := "https://4.bp.blogspot.com/-TOpMgE8dQKc/W-s52dGFFXI/AAAAAAAAyaU/Z1OHgo2ZSa88E3IaF9ztZ5UsnISSi82IgCK4BGAYYCw/s1600/logo.png"
-			if err := DownloadFile("logo.jpg", fileUrl); err != nil {
-				panic(err)
-			}
-			cmd.Println("Image Downloaded.")
+			cmd.Println("Smart Internet Download Manager v0.1")
 			return nil
 		},
 	}
