@@ -9,5 +9,10 @@ NOTE : This App Is UNDER DEVELOPMENT now!
 - use CLI or GUI
 - cross-platform (GNU/Linux, Mac, Windows, Android)
 
+## Supported Languages and Translations
+- English
+- Arabic
+- MORE COMES LATER...
+
 ## Support
 You can support me by contributing to this project via opening an [issue](https://github.com/DevAbanoub/sidm/issues) or [pull request](https://github.com/DevAbanoub/sidm/pulls).
