@@ -11,8 +11,8 @@ import (
 
 func main() {
 	cmd := &cobra.Command{
-		Use:          "sidm",
-		Short:        "Smart Internet Download Manager!",
+		Use:          "adm",
+		Short:        "A Download Manager!",
 		SilenceUsage: true,
 	}
 	cmd.AddCommand(getVersion(), getFileFromUrl())
@@ -52,10 +52,10 @@ func getFileFromUrl() *cobra.Command {
 func getVersion() *cobra.Command {
 	return &cobra.Command{
 		Use:     "version",
-		Short:   "Get the current version number of SIDM",
+		Short:   "Get the current version number of ADM",
 		Aliases: []string{"v", "V", "Version", "VERSION"},
 		RunE: func(cmd *cobra.Command, args []string) error {
-			cmd.Println("Smart Internet Download Manager v0.1")
+			cmd.Println("A Download Manager v0.1")
 			return nil
 		},
 	}
