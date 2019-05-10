@@ -1,5 +1,5 @@
-# sidm
-Smart Internet Download Manager. SIDM is inspired by [xdm](https://github.com/Bolt-Thrower/xdm) and [idm](https://www.internetdownloadmanager.com/).
+# ADM
+A Download Manager. ADM is inspired by [xdm](https://github.com/Bolt-Thrower/xdm) and [idm](https://www.internetdownloadmanager.com/).
 
 NOTE : This App Is UNDER DEVELOPMENT now!
 
