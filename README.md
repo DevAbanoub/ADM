@@ -8,6 +8,7 @@ NOTE : This App Is UNDER DEVELOPMENT now!
 - easy to use (just a click to download any file)
 - use CLI or GUI
 - cross-platform (GNU/Linux, Mac, Windows, Android)
+- Download chunks of data, then combine them together to get the file.
 
 ## Supported Languages and Translations
 - English
